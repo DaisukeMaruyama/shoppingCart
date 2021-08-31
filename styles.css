@@ -26,3 +26,15 @@ header {
   margin: 0!important;
   background-color: rgba(10,10,10, 0.3);
 }
+
+nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 50px 60px 0 60px;
+}
