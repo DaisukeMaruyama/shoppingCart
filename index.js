@@ -92,4 +92,40 @@ function totalCost(product) {
   }
 }
 
+//カート表示
+function displayCart() {
+  let cartItems = localStorage.getItem("productsInCart");
+  //ローカルストレージ入っているものを取り出すときは必ずJSONにする
+  cartItems = JSON.parse(cartItems);
+
+  let productContainer = document.querySelector(".products");
+  if(cartItems && productContainer) {
+    productContainer.innerHTML = " ";
+    Object.values(cartItems).map(item => {
+      productContainer.innerHTML += `
+      
+    <div class="product">
+      <div class="item-product">
+        <ion-icon name="close-circle"></ion-icon>
+        <img src="img/${item.tag}.jpg" class="cartImg">
+        <span class="item-name">${item.name}</span>
+      </div>  
+      <div class="price">$${item.price}</div>
+      <div class="quantity">
+        <ion-icon class="decrease" name="arrow-dropleft-circle"></ion-icon>
+        <span>${item.inCart}</span>
+        <ion-icon class="increase" name="arrow-dropright-circle"></ion-icon>
+      </div>
+      <div>$${item.inCart * item.price}</div>
+    </div>
+      
+      `
+    });
+  } else {
+
+  }
+}
+
+
 onLordCartNumbers();
+displayCart()
