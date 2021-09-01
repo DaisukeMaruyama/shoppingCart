@@ -98,6 +98,8 @@ function displayCart() {
   //ローカルストレージ入っているものを取り出すときは必ずJSONにする
   cartItems = JSON.parse(cartItems);
 
+  let cartCost = localStorage.getItem("totalCost");
+
   let productContainer = document.querySelector(".products");
   if(cartItems && productContainer) {
     productContainer.innerHTML = " ";
@@ -118,12 +120,19 @@ function displayCart() {
       </div>
       <div>$${item.inCart * item.price}</div>
     </div>
-      
+
       `
     });
-  } else {
 
-  }
+    productContainer.innerHTML += `
+    
+    <div class="basketTotalContainer">
+      <h5 class="basketTotalTitle">Grand Total</h5>
+      <h5 class="basketTotal">$${cartCost}</h5>
+    </div>
+
+    `
+  } 
 }
 
 
