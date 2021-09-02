@@ -135,6 +135,5 @@ function displayCart() {
   } 
 }
 
-
 onLordCartNumbers();
 displayCart()
